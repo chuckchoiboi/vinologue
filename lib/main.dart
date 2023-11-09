@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vinologue/screens/listing_screen.dart';
 
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.deepPurple);
 
@@ -6,9 +7,14 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,27 +34,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Vinologue'),
-        ),
-        body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text('filters'),
-              Text('listing'),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterFloat,
-      ),
+      home: const ListingScreen(),
     );
   }
 }
