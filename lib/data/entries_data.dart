@@ -1,6 +1,6 @@
 import 'package:vinologue/models/vinologue_entry.dart';
 
-List<VinologueEntry> entryData = [
+List<VinologueEntry> entriesData = [
   VinologueEntry(
     vintage: 2020,
     wineName: '2020 Morgan Winery Twelve Clones Pinot Noir',
@@ -68,19 +68,19 @@ List<VinologueEntry> entryData = [
 ];
 
 List<VinologueEntry> get entriesByDate {
-  List<VinologueEntry> sortedList = List.from(entryData);
+  List<VinologueEntry> sortedList = List.from(entriesData);
   sortedList.sort((a, b) => a.entryDate.compareTo(b.entryDate));
   return sortedList;
 }
 
 List<VinologueEntry> get entriesByRating {
-  List<VinologueEntry> sortedList = List.from(entryData);
+  List<VinologueEntry> sortedList = List.from(entriesData);
   sortedList.sort((a, b) => b.userRating.compareTo(a.userRating));
   return sortedList;
 }
 
 List<VinologueEntry> get entriesByGrapeVarietal {
-  List<VinologueEntry> sortedList = List.from(entryData);
+  List<VinologueEntry> sortedList = List.from(entriesData);
   sortedList.sort((a, b) => a.grapeVarietal.compareTo(b.grapeVarietal));
   return sortedList;
 }
