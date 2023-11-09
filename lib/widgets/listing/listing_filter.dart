@@ -15,13 +15,18 @@ class _ListingFilterState extends State<ListingFilter> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Switch(
-            onChanged: (bool value) {
-              setState(() {
-                isToggleOn = value;
-              });
-            },
-            value: isToggleOn),
+        Row(
+          children: [
+            Switch(
+                onChanged: (bool value) {
+                  setState(() {
+                    isToggleOn = value;
+                  });
+                },
+                value: isToggleOn),
+            Text(isToggleOn ? 'Stacked' : 'Row'),
+          ],
+        ),
         const Text('filter'),
       ],
     );
