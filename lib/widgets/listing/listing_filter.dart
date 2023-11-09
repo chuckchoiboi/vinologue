@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 
-class ListingFilter extends StatelessWidget {
+class ListingFilter extends StatefulWidget {
   const ListingFilter({super.key});
 
   @override
+  State<ListingFilter> createState() => _ListingFilterState();
+}
+
+class _ListingFilterState extends State<ListingFilter> {
+  bool isToggleOn = true;
+
+  @override
   Widget build(context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('toggle'),
-        Text('filter'),
+        Switch(
+            onChanged: (bool value) {
+              setState(() {
+                isToggleOn = value;
+              });
+            },
+            value: isToggleOn),
+        const Text('filter'),
       ],
     );
   }
