@@ -41,9 +41,14 @@ class _MyAppState extends State<MyApp> {
             ),
         cardTheme: const CardTheme().copyWith(
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.grey),
+            borderRadius: BorderRadius.circular(15.0),
+          ),
         ),
       ),
       home: const ListingScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

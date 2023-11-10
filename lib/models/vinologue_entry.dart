@@ -3,6 +3,7 @@ class VinologueEntry {
   String wineName;
   String region;
   String grapeVarietal;
+  String redOrWhite;
   double userRating;
   DateTime entryDate;
 
@@ -11,6 +12,7 @@ class VinologueEntry {
     required this.wineName,
     required this.region,
     required this.grapeVarietal,
+    required this.redOrWhite,
     required this.userRating,
     required this.entryDate,
   });
