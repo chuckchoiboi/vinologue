@@ -60,7 +60,7 @@ class _ListingScreenState extends State<ListingScreen> {
               onListingFilterChange: _changeListingFilter,
             ),
             const SizedBox(height: 30),
-            EntriesListing(_entriesData),
+            EntriesListing(_entriesData, _listingView),
           ],
         ),
       ),

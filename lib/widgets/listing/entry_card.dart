@@ -4,26 +4,33 @@ import 'package:vinologue/models/vinologue_entry.dart';
 import 'package:vinologue/widgets/listing/user_rating_stars.dart';
 
 class EntryCard extends StatelessWidget {
-  const EntryCard(this.entryData, {super.key});
+  const EntryCard(this.entryData, this.listingView, {super.key});
 
   final VinologueEntry entryData;
+  final String listingView;
 
   @override
   Widget build(context) {
     return Card(
       child: Column(
         children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(10.0),
-              topRight: Radius.circular(10.0),
-            ),
-            child: Image.asset(
-              'assets/images/${entryData.redOrWhite}-wine.jpg',
-              width: double.infinity,
-              height: 400,
-              fit: BoxFit.cover,
-            ),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 200),
+            child: listingView == 'stacked'
+                ? ClipRRect(
+                    key: const ValueKey<String>('stacked'),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
+                    ),
+                    child: Image.asset(
+                      'assets/images/${entryData.redOrWhite}-wine.jpg',
+                      width: double.infinity,
+                      height: 400,
+                      fit: BoxFit.cover,
+                    ),
+                  )
+                : const SizedBox.shrink(),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
@@ -34,6 +41,7 @@ class EntryCard extends StatelessWidget {
                   entryData.wineName,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
+                const SizedBox(height: 5),
                 Row(
                   children: [
                     Text(entryData.region),
