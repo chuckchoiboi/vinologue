@@ -31,9 +31,17 @@ class _MyAppState extends State<MyApp> {
               titleLarge: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: kColorScheme.onPrimaryContainer,
-                fontSize: 20,
+                fontSize: 14,
+              ),
+              bodyMedium: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: kColorScheme.onTertiaryContainer,
+                fontSize: 12,
               ),
             ),
+        cardTheme: const CardTheme().copyWith(
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        ),
       ),
       home: const ListingScreen(),
     );

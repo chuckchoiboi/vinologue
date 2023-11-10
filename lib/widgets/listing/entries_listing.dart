@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:vinologue/models/vinologue_entry.dart';
+import 'package:vinologue/widgets/listing/entry_card.dart';
 
 class EntriesListing extends StatelessWidget {
   const EntriesListing(this.entriesData, {super.key});
@@ -9,14 +10,14 @@ class EntriesListing extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return const Expanded(
+    return Expanded(
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            Text('card'),
-            Text('card'),
-            Text('card'),
-          ],
+          children: entriesData.map(
+            (entry) {
+              return EntryCard(entry);
+            },
+          ).toList(),
         ),
       ),
     );

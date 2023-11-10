@@ -36,7 +36,7 @@ class _ListingScreenState extends State<ListingScreen> {
       if (_listingFilter == filter[1]) {
         _entriesData = entriesByRating;
       }
-      if (_listingFilter == filter[0]) {
+      if (_listingFilter == filter[2]) {
         _entriesData = entriesByGrapeVarietal;
       }
     });
