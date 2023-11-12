@@ -39,7 +39,7 @@ class EntryCard extends StatelessWidget {
               children: [
                 Text(
                   entryData.wineName,
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 5),
                 Row(

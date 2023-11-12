@@ -14,20 +14,14 @@ class UserRatingStars extends StatelessWidget {
       if (index >= filledStars) {
         return const Icon(
           Icons.star_border,
-          color: Colors.deepPurple,
-          size: 20.0,
         );
       } else if (index == filledStars - 1 && remainder > 0.0) {
         return const Icon(
           Icons.star_half,
-          color: Colors.deepPurple,
-          size: 20.0,
         );
       } else {
         return const Icon(
           Icons.star,
-          color: Colors.deepPurple,
-          size: 20.0,
         );
       }
     });

@@ -31,7 +31,12 @@ class _MyAppState extends State<MyApp> {
               titleLarge: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: kColorScheme.onPrimaryContainer,
-                fontSize: 14,
+                fontSize: 20,
+              ),
+              bodyLarge: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kColorScheme.onPrimaryContainer,
+                fontSize: 16,
               ),
               bodyMedium: TextStyle(
                 fontWeight: FontWeight.normal,
@@ -45,6 +50,9 @@ class _MyAppState extends State<MyApp> {
             side: const BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.circular(15.0),
           ),
+        ),
+        iconTheme: const IconThemeData().copyWith(
+          color: kColorScheme.onPrimaryContainer,
         ),
       ),
       home: const ListingScreen(),

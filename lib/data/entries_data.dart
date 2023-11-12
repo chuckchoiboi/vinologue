@@ -3,7 +3,7 @@ import 'package:vinologue/models/vinologue_entry.dart';
 List<VinologueEntry> entriesData = [
   VinologueEntry(
     vintage: 2020,
-    wineName: '2020 Morgan Winery Twelve Clones Pinot Noir',
+    wineName: '2020 Morgan Twelve Clones Pinot Noir',
     region: 'Santa Lucia Highlands, USA',
     grapeVarietal: 'Pinot Noir',
     redOrWhite: 'red',
