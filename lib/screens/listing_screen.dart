@@ -28,16 +28,24 @@ class _ListingScreenState extends State<ListingScreen> {
   }
 
   void _changeListingFilter(int idx) {
+    String prevFilter = _listingFilter;
+
     setState(() {
       _listingFilter = filter[idx];
       if (_listingFilter == filter[0]) {
-        _entriesData = entriesByDate;
+        _entriesData = _listingFilter == prevFilter
+            ? _entriesData.reversed.toList()
+            : entriesByDate;
       }
       if (_listingFilter == filter[1]) {
-        _entriesData = entriesByRating;
+        _entriesData = _listingFilter == prevFilter
+            ? _entriesData.reversed.toList()
+            : entriesByRating;
       }
       if (_listingFilter == filter[2]) {
-        _entriesData = entriesByGrapeVarietal;
+        _entriesData = _listingFilter == prevFilter
+            ? _entriesData.reversed.toList()
+            : entriesByGrapeVarietal;
       }
     });
   }
