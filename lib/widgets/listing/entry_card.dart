@@ -20,8 +20,8 @@ class EntryCard extends StatelessWidget {
                 ? ClipRRect(
                     key: const ValueKey<String>('stacked'),
                     borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10.0),
-                      topRight: Radius.circular(10.0),
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0),
                     ),
                     child: Image.asset(
                       'assets/images/${entryData.redOrWhite}-wine.jpg',
