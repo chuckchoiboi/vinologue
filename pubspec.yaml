@@ -59,6 +59,7 @@ flutter:
     assets:
         - assets/images/red-wine.jpg
         - assets/images/white-wine.jpg
+        - assets/images/wine-image.png
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

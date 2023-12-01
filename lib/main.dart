@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:vinologue/screens/listing_screen.dart';
+import 'package:vinologue/screens/auth_screen.dart';
 
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.deepPurple);
 
@@ -21,7 +22,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
-        useMaterial3: true,
         colorScheme: kColorScheme,
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorScheme.primaryContainer,
@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
           color: kColorScheme.onPrimaryContainer,
         ),
       ),
-      home: const ListingScreen(),
+      home: const AuthScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
