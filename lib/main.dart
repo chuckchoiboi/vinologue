@@ -6,6 +6,7 @@ import 'firebase_options.dart';
 
 import 'package:vinologue/screens/listing_screen.dart';
 import 'package:vinologue/screens/auth_screen.dart';
+import 'package:vinologue/screens/splash_screen.dart';
 
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.deepPurple);
 
@@ -67,6 +68,10 @@ class _MyAppState extends State<MyApp> {
       home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const SplashScreen();
+            }
+
             if (snapshot.hasData) {
               return const ListingScreen();
             }
