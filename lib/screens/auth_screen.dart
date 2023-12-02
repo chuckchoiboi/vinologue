@@ -41,13 +41,15 @@ class _AuthScreenState extends State<AuthScreen> {
         print(userCredentails);
       }
     } on FirebaseAuthException catch (error) {
-      if (error.code == 'email-already-in-use') {
-        //
+      if (context.mounted) {
+        // if (error.code == 'email-already-in-use') {
+        //   //
+        // }
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(error.message ?? 'Authentication failed.'),
+        ));
       }
-      ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(error.message ?? 'Authentication failed.'),
-      ));
     }
   }
 
