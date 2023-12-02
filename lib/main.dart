@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
 
-// import 'package:vinologue/screens/listing_screen.dart';
+import 'package:vinologue/screens/listing_screen.dart';
 import 'package:vinologue/screens/auth_screen.dart';
 
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.deepPurple);
@@ -63,7 +64,14 @@ class _MyAppState extends State<MyApp> {
           color: kColorScheme.onPrimaryContainer,
         ),
       ),
-      home: const AuthScreen(),
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (ctx, snapshot) {
+            if (snapshot.hasData) {
+              return const ListingScreen();
+            }
+            return const AuthScreen();
+          }),
       debugShowCheckedModeBanner: false,
     );
   }
