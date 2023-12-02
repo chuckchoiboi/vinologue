@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:vinologue/widgets/listing/entries_listing.dart';
 import 'package:vinologue/widgets/listing/listing_filter.dart';
@@ -104,11 +105,10 @@ class _ListingScreenState extends State<ListingScreen> {
       appBar: AppBar(
         title: const Text('Vinologue'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            tooltip: 'Add a new entry',
+          TextButton(
+            child: const Text('Log Out'),
             onPressed: () {
-              showNewEntryBottomSheet(context);
+              FirebaseAuth.instance.signOut();
             },
           ),
         ],
@@ -127,6 +127,16 @@ class _ListingScreenState extends State<ListingScreen> {
             const SizedBox(height: 30),
             EntriesListing(_entriesData, _listingView),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        onPressed: () {
+          showNewEntryBottomSheet(context);
+        },
+        child: Icon(
+          Icons.note_alt_rounded,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
       ),
     );
