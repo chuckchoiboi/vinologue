@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-const List<Widget> icons = <Widget>[
-  Text('Date'),
-  Text('Rating'),
-  Text('Varietal')
-];
+const List<Widget> icons = <Widget>[Text('Date'), Text('Rating'), Text('Name')];
 
 Map<String, int> filterMap = {
   'date': 0,
   'rating': 1,
-  'varietal': 2,
+  'name': 2,
 };
 
 class ListingFilter extends StatelessWidget {

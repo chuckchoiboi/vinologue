@@ -8,7 +8,7 @@ import 'package:vinologue/data/entries_data.dart';
 import 'package:vinologue/models/vinologue_entry.dart';
 
 const listingView = ['stacked', 'row'];
-const filter = ['date', 'rating', 'varietal'];
+const filter = ['date', 'rating', 'name'];
 
 void showNewEntryBottomSheet(BuildContext context) {
   showModalBottomSheet<void>(
@@ -94,7 +94,7 @@ class _ListingScreenState extends State<ListingScreen> {
       if (_listingFilter == filter[2]) {
         _entriesData = _listingFilter == prevFilter
             ? _entriesData.reversed.toList()
-            : entriesByGrapeVarietal;
+            : entriesByEntryName;
       }
     });
   }

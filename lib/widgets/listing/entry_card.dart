@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'package:vinologue/models/vinologue_entry.dart';
 import 'package:vinologue/widgets/listing/user_rating_stars.dart';
@@ -8,6 +9,11 @@ class EntryCard extends StatelessWidget {
 
   final VinologueEntry entryData;
   final String listingView;
+
+  String getImagePath() {
+    String wineType = entryData.tastingRecord.wineType.toString().split('.')[1];
+    return 'assets/images/$wineType-wine.jpg';
+  }
 
   @override
   Widget build(context) {
@@ -24,7 +30,7 @@ class EntryCard extends StatelessWidget {
                       topRight: Radius.circular(15.0),
                     ),
                     child: Image.asset(
-                      'assets/images/${entryData.redOrWhite}-wine.jpg',
+                      getImagePath(),
                       width: double.infinity,
                       height: 400,
                       fit: BoxFit.cover,
@@ -38,13 +44,14 @@ class EntryCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  entryData.wineName,
+                  entryData.entryName,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 5),
                 Row(
                   children: [
-                    Text(entryData.region),
+                    Text(DateFormat('yyyy-MM-dd HH:mm:ss')
+                        .format(entryData.createDate)),
                     const Spacer(),
                     UserRatingStars(entryData.userRating)
                   ],

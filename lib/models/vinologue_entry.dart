@@ -1,19 +1,29 @@
+import 'package:vinologue/models/conclusion.dart';
+import 'package:vinologue/models/tasting_record.dart';
+
 class VinologueEntry {
-  int vintage;
-  String wineName;
-  String region;
-  String grapeVarietal;
-  String redOrWhite;
+  String uuid;
+  DateTime createDate;
+  String entryName;
+  bool isBlindTasted;
   double userRating;
-  DateTime entryDate;
+  String? barcode;
+  TastingRecord tastingRecord;
+  InitialConclusion initialConclusion;
+  FinalConclusion finalConclusion;
 
   VinologueEntry({
-    required this.vintage,
-    required this.wineName,
-    required this.region,
-    required this.grapeVarietal,
-    required this.redOrWhite,
+    required this.uuid,
+    required this.createDate,
+    required this.entryName,
+    required this.isBlindTasted,
     required this.userRating,
-    required this.entryDate,
-  });
+    this.barcode,
+    required this.tastingRecord,
+    required this.initialConclusion,
+    required this.finalConclusion,
+  }) : assert(userRating >= 0.0 && userRating <= 5.0,
+            'Rate must be between 0.0 and 5.0') {
+    userRating = userRating;
+  }
 }

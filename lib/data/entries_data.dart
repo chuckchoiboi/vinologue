@@ -1,83 +1,80 @@
 import 'package:vinologue/models/vinologue_entry.dart';
+import 'package:vinologue/models/conclusion.dart';
+import 'package:vinologue/models/tasting_record.dart';
+import 'package:vinologue/models/enums.dart';
 
 List<VinologueEntry> entriesData = [
   VinologueEntry(
-    vintage: 2020,
-    wineName: '2020 Morgan Twelve Clones Pinot Noir',
-    region: 'Santa Lucia Highlands, USA',
-    grapeVarietal: 'Pinot Noir',
-    redOrWhite: 'red',
-    userRating: 4.0,
-    entryDate: DateTime(2022, 6, 21, 13, 45, 0, 600),
-  ),
-  VinologueEntry(
-    vintage: 2019,
-    wineName: '2019 Example Winery Merlot Reserve',
-    region: 'Napa Valley, USA',
-    grapeVarietal: 'Merlot',
-    redOrWhite: 'red',
+    uuid: '123456789',
+    createDate: DateTime.now(),
+    entryName: 'My Wine Tasting Experience',
+    isBlindTasted: true,
     userRating: 4.5,
-    entryDate: DateTime(2022, 8, 3, 15, 0, 0, 0),
-  ),
-  VinologueEntry(
-    vintage: 2018,
-    wineName: '2018 Classic Vineyards Cabernet Sauvignon',
-    region: 'Sonoma County, USA',
-    grapeVarietal: 'Cabernet Sauvignon',
-    redOrWhite: 'red',
-    userRating: 3.5,
-    entryDate: DateTime(2022, 8, 4, 12, 30, 0, 300),
-  ),
-  VinologueEntry(
-    vintage: 2017,
-    wineName: '2017 Estate Winery Chardonnay',
-    region: 'Monterey County, USA',
-    grapeVarietal: 'Chardonnay',
-    redOrWhite: 'white',
-    userRating: 4.0,
-    entryDate: DateTime(2022, 7, 15, 18, 20, 0, 800),
-  ),
-  VinologueEntry(
-    vintage: 2016,
-    wineName: '2016 Grand Reserve Syrah',
-    region: 'Paso Robles, USA',
-    grapeVarietal: 'Syrah',
-    redOrWhite: 'red',
-    userRating: 2.5,
-    entryDate: DateTime(2022, 9, 10, 10, 0, 0, 500),
-  ),
-  VinologueEntry(
-    vintage: 2015,
-    wineName: '2015 Mountain Vineyards Zinfandel',
-    region: 'Amador County, USA',
-    grapeVarietal: 'Zinfandel',
-    redOrWhite: 'red',
-    userRating: 1.0,
-    entryDate: DateTime(2022, 9, 15, 14, 45, 0, 200),
-  ),
-  VinologueEntry(
-    vintage: 2014,
-    wineName: '2014 Reserve Cellars Malbec',
-    region: 'Mendoza, Argentina',
-    grapeVarietal: 'Malbec',
-    redOrWhite: 'red',
-    userRating: 4.0,
-    entryDate: DateTime(2022, 10, 5, 16, 30, 0, 400),
-  ),
-  VinologueEntry(
-    vintage: 2013,
-    wineName: '2013 Heritage Estate Châteauneuf-du-Pape',
-    region: 'Rhône Valley, France',
-    grapeVarietal: 'Grenache, Syrah, Mourvèdre',
-    redOrWhite: 'red',
-    userRating: 5.0,
-    entryDate: DateTime(2022, 10, 12, 20, 15, 0, 700),
-  ),
+    barcode: '1234567890123',
+    tastingRecord: TastingRecord(
+      wineType: WineType.red,
+      sight: Sight(
+        clarity: Clarity.clear,
+        brightness: Brightness.bright,
+        concentration: Concentration.deep,
+        gasEvidence: true,
+        particles: false,
+        color: Color.ruby,
+        hue: Hue.ruby,
+        rimVariation: true,
+        staining: Staining.medium,
+        tears: Tears.heavy,
+      ),
+      nose: Nose(
+        faulty: [Fault.tca, Fault.h2s],
+        intensity: Intensity.powerful,
+        ageAssessment: AgeAssessment.vinous,
+        fruit: [Fruit.redBerry, Fruit.blackBerry],
+        fruitCharacter: [FruitCharacter.ripe, FruitCharacter.jammy],
+        nonFruit: [NonFruit.floral, NonFruit.spice],
+        organicEarth: [OrganicEarth.forestFloor, OrganicEarth.compost],
+        inorganicEarth: [InorganicEarth.mineral, InorganicEarth.volcanic],
+        tertiaryAged: [TertiaryAged.meaty, TertiaryAged.leather],
+        wood: [Wood.old, Wood.newWood],
+      ),
+      palateStructure: PalateStructure(
+        sweetness: Sweetness.dry,
+        tannin: IntensityScale.medium,
+        acid: IntensityScale.medium,
+        alcohol: IntensityScale.mediumPlus,
+        bodyTexture: BodyTexture.medium,
+      ),
+      palateFlavor: PalateFlavor(
+        fruit: [Fruit.redBerry, Fruit.blackBerry],
+        fruitCharacter: [FruitCharacter.ripe, FruitCharacter.jammy],
+        nonFruit: [NonFruit.floral, NonFruit.spice],
+        organicEarth: [OrganicEarth.forestFloor, OrganicEarth.compost],
+        inorganicEarth: [InorganicEarth.mineral, InorganicEarth.volcanic],
+        wood: [Wood.old, Wood.newWood],
+        length: Length.medium,
+        complexity: Complexity.moderate,
+      ),
+    ),
+    initialConclusion: InitialConclusion(
+      oldWorldNewWorld: OldWorldNewWorld.oldWorld,
+      climate: Climate.moderate,
+      grapeVariety: 'Cabernet Sauvignon',
+      possibleCountries: 'France',
+      ageRange: AgeRange.under5,
+    ),
+    finalConclusion: FinalConclusion(
+      vintage: '2016',
+      grapeVariety: 'Cabernet Sauvignon',
+      country: 'France',
+      regionAppellation: 'Bordeaux',
+      quality: Quality.aocDocg,
+    ),
+  )
 ];
 
 List<VinologueEntry> get entriesByDate {
   List<VinologueEntry> sortedList = List.from(entriesData);
-  sortedList.sort((a, b) => a.entryDate.compareTo(b.entryDate));
+  sortedList.sort((a, b) => a.createDate.compareTo(b.createDate));
   return sortedList;
 }
 
@@ -87,8 +84,8 @@ List<VinologueEntry> get entriesByRating {
   return sortedList;
 }
 
-List<VinologueEntry> get entriesByGrapeVarietal {
+List<VinologueEntry> get entriesByEntryName {
   List<VinologueEntry> sortedList = List.from(entriesData);
-  sortedList.sort((a, b) => a.grapeVarietal.compareTo(b.grapeVarietal));
+  sortedList.sort((a, b) => a.entryName.compareTo(b.entryName));
   return sortedList;
 }
